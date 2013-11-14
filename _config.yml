@@ -1,0 +1,6 @@
+name: Segmentation Fault
+markdown: redcarpet
+pygments: true
+safe: true
+lsi: false
+source: .
