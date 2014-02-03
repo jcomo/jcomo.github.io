@@ -1,0 +1,5 @@
+name: Jonathan Como
+markdown: redcarpet
+paginate: 5 # pagination based on number of posts
+pygments: true
+exclude: ['Gemfile', 'Gemfile.lock', 'README.md']
