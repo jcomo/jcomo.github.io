@@ -22,6 +22,11 @@ body {
 
 h1, h2, h3, h4, h5, h6 { font-size: 100%; font-weight: 400; }
 
+h2 {
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
 a         { color: #d28b71; text-decoration: none; }
 a:hover   { text-decoration: underline; }
 a:visited { color: #cb6077; }
@@ -32,13 +37,20 @@ i:visited {
   color: #d28b71;
 }
 
+/* Branding */
+.brand {
+  font-family: 'Source Sans Pro', Helvetica, sans-serif;
+  color: #d28b71;
+  text-transform: lowercase;
+}
+
 /* Utility */
 
 .wrap:before,
 .wrap:after { content:""; display:table; }
 .wrap:after { clear: both; }
 .wrap {
-  max-width: 720px;
+  max-width: 840px;
   padding: 0 30px;
   margin: 0 auto;
   zoom: 1;
@@ -128,7 +140,7 @@ i:visited {
 /* Site footer */
 
 .site-footer {
-  padding: 30px 0;
+  padding: 40px 0;
 }
 
 .footer-about {
@@ -174,6 +186,24 @@ i:visited {
   margin-bottom: 15px;
 }
 
+/* Sidebar styles */
+/* ----------------------------------------------------------*/
+.sidebar {
+  width: 28%;
+  overflow: hidden;
+  background-color: #f8f3f0;
+  border-radius: 5px;
+  padding: 2%;
+}
+@media screen and (max-width: 747px) {
+  .sidebar {
+    width: 100%;
+    background: none;
+    padding: 0;
+    margin-top: 60px;
+  }
+}
+
 
 /* Page Content styles */
 /* ----------------------------------------------------------*/
@@ -187,7 +217,21 @@ i:visited {
 /* Home styles */
 /* ----------------------------------------------------------*/
 
+.home {
+  width: 64%;
+  margin-right: 4%;
+  float: left;
+}
+@media screen and (max-width: 747px) {
+  .home {
+    width: 100%;
+    float: none;
+  }
+}
+
 .home h1 { margin-bottom: 25px; }
+
+.repo { margin-bottom: 1em !important;}
 
 .posts { list-style-type: none; }
 
@@ -211,7 +255,7 @@ i:visited {
   font-size: 16px;
 }
 
-@media screen and (max-width: 747px) {
+@media screen and (max-width: 479px) {
   .posts li {
     margin-bottom: 2.4em;
   }
@@ -317,7 +361,13 @@ i:visited {
   -moz-border-radius: 3px;
   border-radius: 3px;
   font-size: 15px;
-  overflow: scroll;
+}
+
+@media screen and (max-width: 747px) {
+  .post pre,
+  .post code {
+    overflow: scroll;
+  }
 }
 
 .post code { padding: 1px 5px; }
