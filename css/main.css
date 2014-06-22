@@ -131,6 +131,17 @@ i:visited {
   padding: 30px 0;
 }
 
+.footer-about {
+  font-family: 'Source Sans Pro', Helvetica, sans-serif;
+  text-transform: lowercase;
+  font-size: 1.4em;
+  margin-top: 15px;
+}
+
+.footer-about > a {
+  color: #d28b71 !important;
+}
+
 .footer-content {
   padding: 30px 0;
   width: 75%;
@@ -145,16 +156,16 @@ i:visited {
 
 .footer-content ul li {
   display: inline;
-  margin: 0 0.4em;
+  margin: 0 0.2em;
 }
 
 .footer-content ul.meta li {
-  font-size: 3em;
+  font-size: 3.4em;
 }
 
 @media screen and (max-width: 479px) {
   .footer-content ul.meta li {
-    font-size: 2em;
+    font-size: 2.6em;
   }
 }
 .footer-heading {
