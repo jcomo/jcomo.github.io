@@ -50,7 +50,7 @@ i:visited {
 .wrap:after { content:""; display:table; }
 .wrap:after { clear: both; }
 .wrap {
-  max-width: 840px;
+  max-width: 920px;
   padding: 0 30px;
   margin: 0 auto;
   zoom: 1;
@@ -140,7 +140,7 @@ i:visited {
 /* Site footer */
 
 .site-footer {
-  padding: 40px 0;
+  padding: 60px 0 40px;
 }
 
 .footer-about {
@@ -156,7 +156,7 @@ i:visited {
 
 .footer-content {
   padding: 30px 0;
-  width: 75%;
+  width: 60%;
   margin: 0 auto;
   border-top: 1px solid #eaeaea;
   text-align: center;
@@ -189,7 +189,7 @@ i:visited {
 /* Sidebar styles */
 /* ----------------------------------------------------------*/
 .sidebar {
-  width: 28%;
+  width: 24%;
   overflow: hidden;
   background-color: #f8f3f0;
   border-radius: 5px;
@@ -219,7 +219,7 @@ i:visited {
 
 .home {
   width: 64%;
-  margin-right: 4%;
+  margin-right: 8%;
   float: left;
 }
 @media screen and (max-width: 747px) {
