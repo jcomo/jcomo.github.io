@@ -1,7 +1,6 @@
 /* Fonts */
 @import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,600);
 @import url(http://fonts.googleapis.com/css?family=Merriweather:400,300);
-@import url(http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css);
 
 /* Base */
 /* ----------------------------------------------------------*/
@@ -42,25 +41,6 @@ h2 {
 a         { color: #000; text-decoration: underline; }
 a:hover   { background: rgb(255, 233, 78) }
 a:visited { color: #a9a9a9; }
-
-/* Branding */
-.brand {
-  font-family: 'Source Sans Pro', Helvetica, sans-serif;
-  color: #d28b71;
-  text-transform: lowercase;
-}
-
-/* Utility */
-
-.wrap:before,
-.wrap:after { content:""; display:table; }
-.wrap:after { clear: both; }
-.wrap {
-  max-width: 920px;
-  padding: 0 30px;
-  margin: 0 auto;
-  zoom: 1;
-}
 
 
 /* Layout Styles */
@@ -182,8 +162,6 @@ header {
 
 /* Home styles */
 /* ----------------------------------------------------------*/
-
-.repo { margin-bottom: 1em !important;}
 
 .posts { list-style-type: none; }
 
