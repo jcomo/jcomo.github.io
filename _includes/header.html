@@ -1,10 +1,15 @@
-<header class="site-header">
+<header>
+    <a class="site-title" href="{{ site.baseurl }}/">
+    	<span class="first-name">Jonathan</span> Como
+    </a>
 
-  <div class="wrap">
-
-    <a class="site-title" href="{{ site.baseurl }}/">{{ site.title }}</a>
-    <span class="tagline">Programming all the bytes</span>
-
-  </div>
+    <div class="contact">
+		<ul>
+			<li><a href="http://github.com/{{ site.github }}">github</a></li>
+			<li><a href="http://twitter.com/{{ site.twitter }}">twitter</a></li>
+			<li><a href="mailto:{{ site.email }}">email</a></li>
+			<li><a href="{{ site.baseurl }}/about">about</a></li>
+		</ul>    	
+    </div>
 
 </header>
