@@ -20,7 +20,7 @@ If you are like me and want a quick way to run your Scala code and see the outpu
 1. Navigate to Tools &rarr; Build System &rarr; New Build System...
 1. In the editor, enter the following and save it as `Scala.sublime-build`
 
-{% highlight json %}
+{% highlight javascript %}
 {
   "cmd": ["scala", "$file"],
   "path": "$PATH:/usr/local/bin",
@@ -44,7 +44,7 @@ Let's create some better keybindings for cycling through errors so that we can m
 1. Navigate to Sublime Text 2 &rarr; Preferences &rarr; Key Bindings - User
 2. Enter these keybindings in. You can specify any keys here; these are the ones I use.
 
-{% highlight json %}
+{% highlight javascript %}
 [
   // any additional keybindings above
 
