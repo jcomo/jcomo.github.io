@@ -205,12 +205,6 @@ footer {
   }
 }
 
-@media screen and (max-width: 35.5em) {
-  .posts li {
-    margin-bottom: 1.2em;
-  }
-}
-
 
 /* Post styles */
 /* ----------------------------------------------------------*/
