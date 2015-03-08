@@ -114,6 +114,10 @@ footer {
   .site-title {
     text-align: right;
   }
+
+  .site-nav {
+    margin-right: 20px;
+  }
 }
 
 
@@ -185,7 +189,7 @@ footer {
 
 .posts .post-link {
   font-size: 36px;
-  line-height: 1.2;
+  line-height: 1.4;
   color: #333;
 }
 
@@ -193,7 +197,13 @@ footer {
   font-style: italic;
   display: block;
   font-size: 14px;
-  color: #595959;
+  color: #999;
+  margin-bottom: 10px;
+}
+
+.posts .post-preview {
+  line-height: 1.6;
+  margin-top: 10px;
 }
 
 @media screen and (max-width: 35.5em) {
