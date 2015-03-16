@@ -9,3 +9,47 @@
   ga('send', 'pageview');
 
 </script>
+
+<script>
+(function() {
+    function Highlighter(colors) {
+        this.colors = colors || ['yellow', 'blue', 'green', 'pink'];
+
+        this.select = function(node) {
+            node.style.background = this._highlightColor(node);
+        };
+
+        this.deselect = function(node) {
+            node.style.background = '';
+        };
+
+        this._highlightColor = function(node) {
+            var nodeTextValue = this._textValue(node.toString());
+            return this.colors[nodeTextValue % this.colors.length];
+        }
+
+        this._textValue = function(text) {
+            // Get an integer value for the text by taking the sum of the char
+            // codes in the text. Think of this like a poor man's hash value.
+            return text.toString().split('').reduce(function(acc, chr) {
+                return acc + chr.charCodeAt(0);
+            }, 0);
+        }
+    }
+
+    var pastelHighlightColors = ['#FFE94E', '#94F08A', '#85ECFF', '#FDABE6'];
+    var highlighter = new Highlighter(pastelHighlightColors);
+
+    // Funky forEach syntax since document.getElementsByTagName returns an 
+    // HTMLCollection instead of an array
+    [].forEach.call(document.getElementsByTagName('a'), function(anchorTag) {
+        anchorTag.addEventListener('mouseover', function() {
+            highlighter.select(anchorTag);
+        });
+
+        anchorTag.addEventListener('mouseout', function() {
+            highlighter.deselect(anchorTag);
+        });
+    });
+})();
+</script>

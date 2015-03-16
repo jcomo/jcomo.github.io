@@ -44,7 +44,6 @@ h2 {
 }
 
 a         { color: #000; text-decoration: underline; }
-a:hover   { background: rgb(255, 233, 78) }
 a:visited { color: #a9a9a9; }
 
 
@@ -87,7 +86,7 @@ footer {
 .site-title:visited {
   color: #333;
   text-decoration: none;
-  background: #fff;
+  background: #fff !important;
 }
 
 @media screen and (max-width: 48em) {
