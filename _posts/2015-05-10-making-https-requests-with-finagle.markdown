@@ -47,11 +47,10 @@ a request and feed it to our client. The service should look something like this
 class AmazonReceiptValidationClient(dest: String) extends Service[AmazonReceiptRequest, Response] {
   private val service = Http.newService(dest)
 
-  override def apply(req: AmazonReceiptRequest): Future[AmazonReceiptResponse] = {
+  override def apply(req: AmazonReceiptRequest): Future[Response] = {
     service(req) map { resp =>
-      if (resp.getStatus == HttpResponseStatus.OK) {
-        AmazonReceiptResponse(resp)
-      } else throw new Exception("Could not validate Amazon receipt")
+      if (resp.getStatus == HttpResponseStatus.OK) resp
+      else throw new Exception("Could not validate Amazon receipt")
     }
   }
 }
@@ -69,7 +68,7 @@ seeing it, but the documentation is not very clear. The private definition
 for `service` would change to the following
 
 {% highlight scala %}
-private val service = Http.client.withTls(hostname).newService(s"hostname:443")
+private val service = Http.client.withTls(hostname).newService(s"$hostname:443")
 {% endhighlight %}
 
 And would then be instantiated as
