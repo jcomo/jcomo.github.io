@@ -321,11 +321,13 @@ p > code {
 
 .post pre.terminal code { background-color: #333; }
 
+div.highlight,
 figure.highlight {
   border-radius: 10px;
 }
 
 @media screen and (max-width: 35.5em) {
+  div.highlight,
   figure.highlight {
     border-radius: 6px;
   }
