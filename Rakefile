@@ -5,7 +5,6 @@ require 'time'
 
 SOURCE = "."
 CONFIG = {
-  # :version => "1.3.0",
   :layouts => File.join(SOURCE, "_layouts"),
   :posts => File.join(SOURCE, "_posts"),
   :ext => "markdown"
