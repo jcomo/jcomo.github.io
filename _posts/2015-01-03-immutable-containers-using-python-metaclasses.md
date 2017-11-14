@@ -11,7 +11,7 @@ I have found python to be one of the easiest languages to pick up, and I think t
 At the moment I put myself into that moderately experienced bucket. I'm pretty comfortable overall but I haven't had a chance to explore the more advanced areas of the language. Metaclasses are the first topic I wanted to dive into.
 
 ## Meta what?
-By definition, metaclasses are classes that describe and instantiate other classes. Cue the head exploding gif. It sounds pretty convulted but in reality it's not. In python everything is an object. When you write a class definition, you are essentially defining the properties that each instance of the class will have. Similarly, with metaclasses you are defining the properties that each *class* will have.
+By definition, metaclasses are classes that describe and instantiate other classes. Cue the head exploding gif. It sounds pretty convoluted but in reality it's not. In python everything is an object. When you write a class definition, you are essentially defining the properties that each instance of the class will have. Similarly, with metaclasses you are defining the properties that each *class* will have.
 
 ## Metaclass uses
 Metaclasses are commonly used as class factories and as ways to add functionality to a class itself. Frameworks make use of this (eg. Django) and some libraries also use them. One example of a library is Mongokit.
