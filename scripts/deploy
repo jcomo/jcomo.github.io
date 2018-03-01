@@ -24,7 +24,7 @@ git add .
 git stash
 
 git checkout master
-git pull --rebase
+git pull --rebase origin master
 
 if [[ ! -f index.html ]]; then
   echo "error: not in the build dir"
