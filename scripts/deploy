@@ -14,6 +14,11 @@ git_ref () {
     || git rev-parse HEAD
 }
 
+is_clean () {
+  # Returns non-zero if the working dir is dirty
+  git diff-index --quiet HEAD --
+}
+
 last_ref=$(git_ref)
 
 banana build --clean
@@ -36,8 +41,10 @@ mv $TMP_DIR/* .
 rm -rf $TMP_DIR
 
 git add .
-git commit -m 'Deploy site'
-git push origin master
+is_clean || (
+  git commit -m 'Deploy site'
+  git push origin master
+)
 
 git checkout $last_ref
 git stash pop
