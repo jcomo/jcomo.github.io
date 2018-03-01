@@ -1,0 +1,42 @@
+#!/bin/bash
+
+set -e
+
+TMP_DIR=/tmp/banana-build
+
+# To deploy, we build the blog and push to remote master.
+# Github will serve the site from there.
+
+git_ref () {
+  # Prints the current branch name or the sha
+  git sybolic-ref --short HEAD 2>/dev/null \
+    || git rev-parse HEAD
+}
+
+last_ref=$(git_ref)
+
+banana build --clean
+rm -rf $TMP_DIR
+mv _build $TMP_DIR
+
+git add .
+git stash
+
+git checkout master
+git pull --rebase
+
+if [[ ! -f index.html ]]; then
+  echo "error: not in the build dir"
+  exit 1
+fi
+
+ls | grep -v CNAME | xargs rm -rf
+mv $TMP_DIR/* .
+rm -rf $TMP_DIR
+
+git add .
+git commit -m 'Deploy site'
+git push origin master
+
+git checkout $last_ref
+git stash pop
