@@ -21,8 +21,8 @@ is_clean () {
 
 last_ref=$(git_ref)
 
-banana build --clean
 rm -rf $TMP_DIR
+banana build --clean
 mv _build $TMP_DIR
 
 git add .
