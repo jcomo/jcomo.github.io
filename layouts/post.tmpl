@@ -1,0 +1,22 @@
+{{ define "layout" }}
+<div class="post">
+  <header class="post-header">
+    <h1>{{ .Page.Title }}</h1>
+    <p class="meta">
+      {{ .Page.Date | date "January _2, 2006" }}
+      {{ if .Page.Author }}
+        • {{ .Page.Author }}
+      {{ end }}
+
+      {{ if .Page.Meta }}
+        • {{ .Page.Meta }}
+      {{ end }}
+    </p>
+  </header>
+
+  <article class="post-content">
+  	{{ .Page.Content }}
+  </article>
+
+</div>
+{{ end }}
