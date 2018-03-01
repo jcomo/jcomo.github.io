@@ -1,6 +1,7 @@
 #!/bin/bash
 
 set -e
+set -o pipefail
 
 TMP_DIR=/tmp/banana-build
 
