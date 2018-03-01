@@ -10,7 +10,7 @@ TMP_DIR=/tmp/banana-build
 
 git_ref () {
   # Prints the current branch name or the sha
-  git sybolic-ref --short HEAD 2>/dev/null \
+  git symbolic-ref --short HEAD 2>/dev/null \
     || git rev-parse HEAD
 }
 
