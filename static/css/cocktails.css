@@ -1,0 +1,144 @@
+/* Fonts */
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,600);
+@import url(https://fonts.googleapis.com/css?family=Merriweather:400,300);
+@import url(https://fonts.googleapis.com/css?family=Source+Code+Pro:400);
+
+/* Base */
+/* ----------------------------------------------------------*/
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  font-family: 'Merriweather', Georgia, serif;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 300;
+  background-color: #fff;
+  width: 90%;
+  margin: auto;
+  padding-top: 3em;
+  padding-bottom: 50px;
+}
+
+
+@media screen and (min-width: 64em) {
+  body {
+    width: 57em;
+    padding-top: 4em;
+  }
+}
+
+h1, h2, h3, h4, h5, h6 { font-size: 100%; font-weight: 400; }
+
+h2 {
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+a         { color: #000; text-decoration: underline; }
+a:visited { color: #a9a9a9; }
+a:hover   { background: #ffe94e; }
+
+
+/* Layout Styles */
+/* ----------------------------------------------------------*/
+
+header {
+  margin-bottom: 1em;
+}
+
+footer {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 30px;
+    width: 100%;
+    color: #aaa;
+    font-size: 12px;
+    text-align: center;
+    margin-bottom: 1.2em;
+}
+
+.site-title {
+  color: #333;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 600;
+  font-size: 3rem;
+  letter-spacing: -0.04em;
+  line-height: 0.8;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.site-title a {
+  text-decoration: none;
+}
+
+.site-title a:hover,
+.site-title a:visited {
+  color: #333;
+  text-decoration: none;
+  background: none;
+}
+
+.site-logo {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 24px;
+}
+
+.site-logo img {
+    display: block;
+    height: 64px;
+    width: 64px;
+}
+
+.cocktail-section {
+    margin-top: 48px;
+    margin-bottom: 96px;
+    text-align: center;
+}
+
+.cocktail-section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 24px;
+    font-weight: 500;
+    text-transform: lowercase;
+}
+
+.cocktail {
+    margin-bottom: 48px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cocktail-image {
+    margin-bottom: 8px;
+}
+
+.cocktail-image img {
+    display: block;
+    height: 48px;
+    width: 48px;
+    object-fit: contain;
+}
+
+.cocktail-name {
+    text-transform: lowercase;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.cocktail-ingredients {
+    text-transform: lowercase;
+}
