@@ -4,8 +4,8 @@ import { AppProps } from 'next/app';
 import { ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import { CacheProvider, EmotionCache } from '@emotion/react';
-import theme from '../src/theme';
 import createEmotionCache from '../src/createEmotionCache';
+import { site as siteTheme, cocktails as cocktailsTheme } from '../src/themes';
 
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();
@@ -14,8 +14,13 @@ interface MyAppProps extends AppProps {
   emotionCache?: EmotionCache;
 }
 
-export default function MyApp(props: MyAppProps) {
-  const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
+export default function MyApp({
+  Component,
+  pageProps,
+  emotionCache = clientSideEmotionCache,
+}: MyAppProps) {
+  const theme = pageProps.theme === 'cocktails' ? cocktailsTheme : siteTheme;
+
   return (
     <CacheProvider value={emotionCache}>
       <Head>

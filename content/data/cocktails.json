@@ -1,0 +1,44 @@
+{
+  "menus": [
+    {
+      "name": "Seasonal",
+      "cocktails": [
+        {
+          "name": "Turkey Trot",
+          "glass": "spritz",
+          "ingredients": ["Prosecco", "Crème de cassis"]
+        },
+        {
+          "name": "Mom's Cranberries",
+          "glass": "martini",
+          "ingredients": ["Cointreau", "Vermouth", "Cranberry juice", "Vodka"]
+        },
+        {
+          "name": "Fall in Manhattan",
+          "glass": "manhattan",
+          "ingredients": ["Rye", "Vermouth", "Maple Syrup"]
+        }
+      ]
+    },
+    {
+      "name": "Classics",
+      "cocktails": [
+        {
+          "name": "The Favorite",
+          "glass": "tumbler",
+          "ingredients": ["Bourbon", "Campari", "Vermouth"]
+        },
+        {
+          "name": "The Newcomer",
+          "glass": "tumbler",
+          "ingredients": ["Rye", "Maraschino", "Punt é mes"]
+        },
+        {
+          "name": "Tommy's Recipe",
+          "glass": "margarita",
+          "ingredients": ["Tequila", "Lime", "Cointreau"]
+        }
+      ]
+    }
+  ]
+}
