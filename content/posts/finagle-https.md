@@ -86,7 +86,7 @@ client.
 For the sake of completeness, I've included the definition of `AmazonReceipt`
 and `AmazonReceiptRequest` below.
 
-```
+``` scala
 case class AmazonReceipt(id: String, developerSecret: String, userId: String)
 
 case class AmazonReceiptRequest(receipt: AmazonReceipt) extends RequestProxy {
