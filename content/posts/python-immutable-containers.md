@@ -1,11 +1,6 @@
 ---
-layout: post
-permalink: /python-immutable-containers/
 title: Immutable Containers Using Python Metaclasses
-description: ""
 date:   2015-01-03T19:50:22Z
-category:
-tags: []
 ---
 
 I have found python to be one of the easiest languages to pick up, and I think there are many people out there who could corroborate that. That alone is a big reason that it is used for teaching. However, under the hood there are a lot of features in the language where the implementation details can be downright scary to the newcomer and even to the moderately experienced pythonista: metaclasses, dunder methods (eg. `__init__`), and perhaps even decorators depending on the complexity of the function wrapper.

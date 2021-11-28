@@ -3,3 +3,7 @@ export interface PostPreview {
     title: string;
     date: string;
 }
+
+export interface Post extends PostPreview {
+    body: string;
+}

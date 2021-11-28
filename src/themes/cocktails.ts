@@ -1,6 +1,5 @@
 import { createTheme } from '@mui/material/styles';
 import { red } from '@mui/material/colors';
-import { letterSpacing } from '@mui/system';
 
 // Create a theme instance.
 const theme = createTheme({

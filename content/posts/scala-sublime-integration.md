@@ -1,9 +1,6 @@
 ---
-layout: post
-permalink: /scala-sublime-integration/
 title: "Easy Scala Integration with Sublime Text 2"
 date:   2014-06-21T19:50:22Z
-categories: scala sublime text repl tools
 ---
 
 EDIT: This may still work with Sublime Text, but I highly recommend using a capable IDE to write Scala code. [IntelliJ](https://www.jetbrains.com/idea/) is my personal choice.

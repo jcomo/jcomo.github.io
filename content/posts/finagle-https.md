@@ -1,11 +1,6 @@
 ---
-layout: post
-permalink: /finagle-https/
 title: Making HTTPS requests with Finagle
-description: ""
 date:   2015-05-10T19:50:22Z
-category: 
-tags: []
 ---
 
 I am currently maintaining a service at my day job that takes arbitrary events

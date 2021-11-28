@@ -1,11 +1,7 @@
 ---
-layout: post
-permalink: /launchtl-anacron-replacement/
 title: Using launchctl as an anacron replacement
 description: "A case study examining launchd and launchctl for running commands on a schedule"
 date:   2015-11-28T19:50:22Z
-category:
-tags: []
 ---
 
 I have a lot of scripts that automate the boring parts of my life. Recently
