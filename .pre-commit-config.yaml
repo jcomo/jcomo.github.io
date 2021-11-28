@@ -1,0 +1,24 @@
+repos:
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v2.1.0
+    hooks:
+    -   id: check-executables-have-shebangs
+    -   id: check-json
+    -   id: check-merge-conflict
+    -   id: check-vcs-permalinks
+    -   id: check-yaml
+    -   id: end-of-file-fixer
+    -   id: trailing-whitespace
+        exclude: '^tests/fixtures/.*'
+-   repo: https://github.com/thlorenz/doctoc
+    rev: v1.4.0
+    hooks:
+    -   id: doctoc
+-   repo: local
+    hooks:
+    - id: eslint
+      name: Ensure code is linted
+      language: system
+      entry: ./node_modules/.bin/eslint
+      args: [--fix]
+      files: '\.(tsx?|jsx?)$'
