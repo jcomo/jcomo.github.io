@@ -16,21 +16,29 @@ export const HomePage = ({ posts }: HomePageProps) => {
             {posts.map(({ slug, title, date }) => (
                 <Box key={slug} sx={{ mb: 4 }}>
                     <NextLink passHref href={routes.post(slug)}>
-                        <Link variant="h6" color="primary" sx={{
-                            '&:hover': {
-                                color: (theme) => theme.palette.background.default,
-                                backgroundColor: (theme) => theme.palette.primary.main,
-                                textDecoration: 'none',
-                            }
-                        }}>
+                        <Link
+                            variant="h6"
+                            color="primary"
+                            sx={{
+                                '&:hover': {
+                                    color: (theme) =>
+                                        theme.palette.background.default,
+                                    backgroundColor: (theme) =>
+                                        theme.palette.primary.main,
+                                    textDecoration: 'none',
+                                },
+                            }}
+                        >
                             {title}
                         </Link>
                     </NextLink>
                     <Typography variant="subtitle2" color="textSecondary">
-                        {DateTime.fromISO(date).toLocaleString(DateTime.DATE_FULL)}
+                        {DateTime.fromISO(date).toLocaleString(
+                            DateTime.DATE_FULL,
+                        )}
                     </Typography>
                 </Box>
             ))}
         </React.Fragment>
     );
-}
+};

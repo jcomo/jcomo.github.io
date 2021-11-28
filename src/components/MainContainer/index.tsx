@@ -18,14 +18,20 @@ export const MainContainer = ({ children }: PropsWithChildren<{}>) => {
                 <Box sx={{ mt: 1, display: 'flex' }}>
                     {links.map(({ text, href }, i) => (
                         <Box key={i} sx={{ mr: 2 }}>
-                            <Link color="secondary" href={href} sx={{
-                                textTransform: 'lowercase',
-                                '&:hover': {
-                                    color: (theme) => theme.palette.background.default,
-                                    backgroundColor: (theme) => theme.palette.secondary.main,
-                                    textDecoration: 'none',
-                                }
-                            }}>
+                            <Link
+                                color="secondary"
+                                href={href}
+                                sx={{
+                                    textTransform: 'lowercase',
+                                    '&:hover': {
+                                        color: (theme) =>
+                                            theme.palette.background.default,
+                                        backgroundColor: (theme) =>
+                                            theme.palette.secondary.main,
+                                        textDecoration: 'none',
+                                    },
+                                }}
+                            >
                                 {text}
                             </Link>
                         </Box>
@@ -33,9 +39,7 @@ export const MainContainer = ({ children }: PropsWithChildren<{}>) => {
                 </Box>
             </Box>
 
-            <main>
-                {children}
-            </main>
+            <main>{children}</main>
 
             <Box component="footer" sx={{ mt: 10, mb: 4, textAlign: 'center' }}>
                 <Typography color="textSecondary" variant="caption">
@@ -44,4 +48,4 @@ export const MainContainer = ({ children }: PropsWithChildren<{}>) => {
             </Box>
         </Container>
     );
-}
+};

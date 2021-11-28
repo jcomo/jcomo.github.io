@@ -18,7 +18,7 @@ interface Props {
 
 export async function getStaticPaths() {
     const postsRepo = getPostsRepository();
-    const paths = postsRepo.getAllSlugs().map(slug => ({
+    const paths = postsRepo.getAllSlugs().map((slug) => ({
         params: { slug },
     }));
 
@@ -51,7 +51,7 @@ function Route({ attributes, body }: Props) {
                 />
             </MainContainer>
         </React.Fragment>
-    )
+    );
 }
 
 export default Route;

@@ -10,12 +10,31 @@ export default class MyDocument extends Document {
             <Html lang="en">
                 <Head>
                     {/* PWA primary color */}
-                    <meta name="theme-color" content={theme.palette.primary.main} />
-                    <link rel="preconnect" href="https://fonts.googleapis.com" />
-                    <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
-                    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap" />
-                    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&display=swap" />
-                    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" />
+                    <meta
+                        name="theme-color"
+                        content={theme.palette.primary.main}
+                    />
+                    <link
+                        rel="preconnect"
+                        href="https://fonts.googleapis.com"
+                    />
+                    <link
+                        rel="preconnect"
+                        href="https://fonts.gstatic.com"
+                        crossOrigin="true"
+                    />
+                    <link
+                        rel="stylesheet"
+                        href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap"
+                    />
+                    <link
+                        rel="stylesheet"
+                        href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&display=swap"
+                    />
+                    <link
+                        rel="stylesheet"
+                        href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap"
+                    />
                 </Head>
                 <body>
                     <Main />
@@ -38,11 +57,10 @@ MyDocument.getInitialProps = async (ctx) => {
     ctx.renderPage = () => {
         return originalRenderPage({
             // eslint-disable-next-line react/display-name
-            enhanceApp: (App: any) => (props) => (
-                <App emotionCache={cache} {...props} />
-            ),
+            enhanceApp: (App: any) => (props) =>
+                <App emotionCache={cache} {...props} />,
         });
-    }
+    };
 
     const initialProps = await Document.getInitialProps(ctx);
     // This is important. It prevents emotion to render invalid HTML.
@@ -60,6 +78,9 @@ MyDocument.getInitialProps = async (ctx) => {
     return {
         ...initialProps,
         // Styles fragment is rendered after the app and page rendering finish.
-        styles: [...React.Children.toArray(initialProps.styles), ...emotionStyleTags],
+        styles: [
+            ...React.Children.toArray(initialProps.styles),
+            ...emotionStyleTags,
+        ],
     };
 };

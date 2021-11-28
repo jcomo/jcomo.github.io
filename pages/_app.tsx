@@ -11,26 +11,29 @@ import { site as siteTheme, cocktails as cocktailsTheme } from '../src/themes';
 const clientSideEmotionCache = createEmotionCache();
 
 interface MyAppProps extends AppProps {
-  emotionCache?: EmotionCache;
+    emotionCache?: EmotionCache;
 }
 
 export default function MyApp({
-  Component,
-  pageProps,
-  emotionCache = clientSideEmotionCache,
+    Component,
+    pageProps,
+    emotionCache = clientSideEmotionCache,
 }: MyAppProps) {
-  const theme = pageProps.theme === 'cocktails' ? cocktailsTheme : siteTheme;
+    const theme = pageProps.theme === 'cocktails' ? cocktailsTheme : siteTheme;
 
-  return (
-    <CacheProvider value={emotionCache}>
-      <Head>
-        <title>Jonathan Como</title>
-        <meta name="viewport" content="initial-scale=1, width=device-width" />
-      </Head>
-      <ThemeProvider theme={theme}>
-        <CssBaseline />
-        <Component {...pageProps} />
-      </ThemeProvider>
-    </CacheProvider>
-  );
+    return (
+        <CacheProvider value={emotionCache}>
+            <Head>
+                <title>Jonathan Como</title>
+                <meta
+                    name="viewport"
+                    content="initial-scale=1, width=device-width"
+                />
+            </Head>
+            <ThemeProvider theme={theme}>
+                <CssBaseline />
+                <Component {...pageProps} />
+            </ThemeProvider>
+        </CacheProvider>
+    );
 }
