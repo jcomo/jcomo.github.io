@@ -15,6 +15,7 @@ export const CocktailsPage = ({ menus }: CocktailsPageProps) => {
                 <Box sx={{ mb: 8 }}>
                     <Box sx={{ mb: 2 }}>
                         <Image
+                            unoptimized
                             height={64}
                             width={64}
                             src="/images/wobbly-paw.jpg"
@@ -39,6 +40,7 @@ export const CocktailsPage = ({ menus }: CocktailsPageProps) => {
                             <Box key={j} sx={{ mb: 4 }}>
                                 <Box sx={{ mb: 1 }}>
                                     <Image
+                                        unoptimized
                                         height={48}
                                         width={48}
                                         src={`/images/cocktails/${glass}.png`}
