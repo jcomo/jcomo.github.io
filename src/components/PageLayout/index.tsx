@@ -29,7 +29,6 @@ export const PageLayout = ({ title, body, date }: PageLayoutProps) => {
             </Box>
 
             <ReactMarkdown
-                children={body}
                 components={{
                     h1({ children }) {
                         return <Typography sx={{ mt: 4, mb: 2 }} variant="h3">{children}</Typography>
@@ -79,7 +78,9 @@ export const PageLayout = ({ title, body, date }: PageLayoutProps) => {
                         )
                     },
                 }}
-            />
+            >
+                {body}
+            </ReactMarkdown>
         </React.Fragment>
     );
 }

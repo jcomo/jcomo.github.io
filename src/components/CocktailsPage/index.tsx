@@ -14,7 +14,7 @@ export const CocktailsPage = ({ menus }: CocktailsPageProps) => {
             <Box sx={{ my: 8, textAlign: 'center' }}>
                 <Box sx={{ mb: 8 }}>
                     <Box sx={{ mb: 2 }}>
-                        <Image height={64} width={64} src="/images/wobbly-paw.jpg" />
+                        <Image height={64} width={64} src="/images/wobbly-paw.jpg" alt="The Wobbly Paw" />
                     </Box>
                     <Typography variant="h1">
                         The Wobbly Paw
@@ -32,7 +32,7 @@ export const CocktailsPage = ({ menus }: CocktailsPageProps) => {
                         {cocktails.map(({ name, glass, ingredients }, j) => (
                             <Box key={j} sx={{ mb: 4 }}>
                                 <Box sx={{ mb: 1 }}>
-                                    <Image height={48} width={48} src={`/images/cocktails/${glass}.png`} />
+                                    <Image height={48} width={48} src={`/images/cocktails/${glass}.png`} alt={`${glass} cocktail glass`} />
                                 </Box>
                                 <Typography variant="h5" sx={{ textTransform: 'lowercase' }}>
                                     {name}

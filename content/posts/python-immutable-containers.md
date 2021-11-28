@@ -106,4 +106,4 @@ Much better.
 ## Concluding thoughts
 Could I have made the immutable container library without using metaclasses? Absolutely. The API may have ended up looking a bit different but it could definitely be done without using metaclasses.
 
-For most things, using metaclasses will be overkill. While they are extremely powerful, they can make the code harder to reason about. I've found that the best place to use them are in frameworks but they also tend to pop up in some libraries. 
+For most things, using metaclasses will be overkill. While they are extremely powerful, they can make the code harder to reason about. I've found that the best place to use them are in frameworks but they also tend to pop up in some libraries.
