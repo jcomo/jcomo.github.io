@@ -3,6 +3,7 @@ import { Box } from '@mui/system';
 import React from 'react';
 import { CocktailMenu } from '../../interfaces/cocktails';
 import Image from 'next/image';
+import { loader } from '../../helpers/imageLoader';
 
 export interface CocktailsPageProps {
     menus: CocktailMenu[];
@@ -15,11 +16,11 @@ export const CocktailsPage = ({ menus }: CocktailsPageProps) => {
                 <Box sx={{ mb: 8 }}>
                     <Box sx={{ mb: 2 }}>
                         <Image
-                            unoptimized
                             height={64}
                             width={64}
                             src="/images/wobbly-paw.jpg"
                             alt="The Wobbly Paw"
+                            loader={loader}
                         />
                     </Box>
                     <Typography variant="h1">The Wobbly Paw</Typography>
@@ -40,11 +41,11 @@ export const CocktailsPage = ({ menus }: CocktailsPageProps) => {
                             <Box key={j} sx={{ mb: 4 }}>
                                 <Box sx={{ mb: 1 }}>
                                     <Image
-                                        unoptimized
                                         height={48}
                                         width={48}
                                         src={`/images/cocktails/${glass}.png`}
                                         alt={`${glass} cocktail glass`}
+                                        loader={loader}
                                     />
                                 </Box>
                                 <Typography
