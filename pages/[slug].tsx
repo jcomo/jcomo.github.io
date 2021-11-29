@@ -18,16 +18,14 @@ interface Props {
 
 export async function getStaticPaths() {
     const postsRepo = getPostsRepository();
-    const paths = postsRepo.getAllSlugs().map((slug) => ({
-        params: { slug },
-    }));
-
+    const slugs = await postsRepo.getAllSlugs();
+    const paths = slugs.map((slug) => ({ params: { slug } }));
     return { paths, fallback: false };
 }
 
 export async function getStaticProps({ params }: Context) {
     const postsRepo = getPostsRepository();
-    const post = postsRepo.getBySlug(params.slug);
+    const post = await postsRepo.getBySlug(params.slug);
     if (!post) {
         return { notFound: true };
     }

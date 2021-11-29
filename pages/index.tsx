@@ -9,7 +9,7 @@ interface Props {
 
 export async function getStaticProps() {
     const postsRepo = getPostsRepository();
-    const posts = postsRepo.getAll();
+    const posts = await postsRepo.getAll();
     return { props: { posts } };
 }
 
