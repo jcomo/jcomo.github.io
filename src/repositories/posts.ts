@@ -1,9 +1,10 @@
 import fs from 'fs';
 import path from 'path';
 import fm from 'front-matter';
-import { Post } from "../interfaces/post";
+import { Post, PostPreview } from '../interfaces/post';
 
 export interface PostsRepository {
+    getAll(): PostPreview[];
     getAllSlugs(): string[];
     getBySlug(slug: string): Post | null;
 }
@@ -15,9 +16,21 @@ export class FileSystemPostsRepository implements PostsRepository {
         this.baseDir = baseDir;
     }
 
+    getAll(): PostPreview[] {
+        const previews: PostPreview[] = [];
+        this.getAllSlugs().forEach((slug) => {
+            const post = this.getBySlug(slug);
+            if (post) {
+                previews.push(post);
+            }
+        });
+
+        return previews.sort((a, b) => (a.date > b.date ? -1 : 1));
+    }
+
     getAllSlugs(): string[] {
         const postFiles = fs.readdirSync(this.baseDir);
-        return postFiles.map(filename => path.parse(filename).name);
+        return postFiles.map((filename) => path.parse(filename).name);
     }
 
     getBySlug(slug: string): Post | null {
@@ -27,7 +40,7 @@ export class FileSystemPostsRepository implements PostsRepository {
 
         // The frontmatter parser will "cleverly" parse date strings as dates,
         // but we can't serialize these, so we format to ISO strings over the wire
-        Object.keys(attributes).forEach(key => {
+        Object.keys(attributes).forEach((key) => {
             const value = attributes[key];
             if (value instanceof Date) {
                 attributes[key] = value.toISOString();
@@ -46,4 +59,4 @@ export class FileSystemPostsRepository implements PostsRepository {
 export const getPostsRepository = () => {
     const baseDir = path.resolve('./content', 'posts');
     return new FileSystemPostsRepository(baseDir);
-}
+};
