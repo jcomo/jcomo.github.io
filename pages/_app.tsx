@@ -5,7 +5,8 @@ import { ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import { CacheProvider, EmotionCache } from '@emotion/react';
 import createEmotionCache from '../src/createEmotionCache';
-import { site as siteTheme, cocktails as cocktailsTheme } from '../src/themes';
+import { ColorModeContext } from '../src/components/ColorMode';
+import { useColorModeContext } from '../src/hooks/useColorModeContext';
 
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();
@@ -19,7 +20,7 @@ export default function MyApp({
     pageProps,
     emotionCache = clientSideEmotionCache,
 }: MyAppProps) {
-    const theme = pageProps.theme === 'cocktails' ? cocktailsTheme : siteTheme;
+    const [colorModeContext, theme] = useColorModeContext(pageProps.theme);
 
     return (
         <CacheProvider value={emotionCache}>
@@ -29,11 +30,17 @@ export default function MyApp({
                     name="viewport"
                     content="initial-scale=1, width=device-width"
                 />
+                <meta
+                    name="theme-color"
+                    content={theme.palette.background.default}
+                />
             </Head>
-            <ThemeProvider theme={theme}>
-                <CssBaseline />
-                <Component {...pageProps} />
-            </ThemeProvider>
+            <ColorModeContext.Provider value={colorModeContext}>
+                <ThemeProvider theme={theme}>
+                    <CssBaseline />
+                    <Component {...pageProps} />
+                </ThemeProvider>
+            </ColorModeContext.Provider>
         </CacheProvider>
     );
 }

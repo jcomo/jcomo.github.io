@@ -1,20 +1,45 @@
-import { Container, Link, Typography } from '@mui/material';
-import React, { PropsWithChildren } from 'react';
+import { Container, Hidden, IconButton, Link, Typography } from '@mui/material';
+import React, { PropsWithChildren, useContext } from 'react';
 import NextLink from 'next/link';
 import { routes } from '../../routes';
 import { DateTime } from 'luxon';
 import { Box } from '@mui/system';
 import { links } from './links';
+import Brightness4Icon from '@mui/icons-material/Brightness4';
+import Brightness4OutlinedIcon from '@mui/icons-material/Brightness4Outlined';
+import { ColorModeContext } from '../ColorMode';
 
 export const MainContainer = ({ children }: PropsWithChildren<{}>) => {
+    const { mode, toggleMode } = useContext(ColorModeContext);
+    const ModeIcon =
+        mode === 'dark' ? Brightness4Icon : Brightness4OutlinedIcon;
+
     return (
         <Container maxWidth="md">
             <Box component="header" sx={{ mt: 4, mb: 6 }}>
-                <NextLink passHref href={routes.index()}>
-                    <Link variant="h1" color="textPrimary" underline="none">
-                        Jonathan Como
-                    </Link>
-                </NextLink>
+                <Box
+                    sx={{
+                        display: 'flex',
+                        justifyContent: 'space-between',
+                        alignItems: 'center',
+                    }}
+                >
+                    <NextLink passHref href={routes.index()}>
+                        <Link variant="h1" color="textPrimary" underline="none">
+                            Jonathan Como
+                        </Link>
+                    </NextLink>
+                    <Hidden smDown>
+                        <IconButton onClick={toggleMode}>
+                            <ModeIcon
+                                sx={{
+                                    color: (theme) =>
+                                        theme.palette.text.primary,
+                                }}
+                            />
+                        </IconButton>
+                    </Hidden>
+                </Box>
                 <Box sx={{ mt: 1, display: 'flex' }}>
                     {links.map(({ text, href }, i) => (
                         <Box key={i} sx={{ mr: 2 }}>
