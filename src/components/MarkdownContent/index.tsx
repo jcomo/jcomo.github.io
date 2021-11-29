@@ -1,5 +1,5 @@
 import { Link, Typography } from '@mui/material';
-import { useTheme } from '@mui/system';
+import { Box, useTheme } from '@mui/system';
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
@@ -63,6 +63,22 @@ export const MarkdownContent = ({ children }: MarkdownContentProps) => {
                 p({ children }) {
                     return <Typography paragraph>{children}</Typography>;
                 },
+                blockquote({ children }) {
+                    return (
+                        <Box
+                            sx={{
+                                px: 4,
+                                my: 6,
+                                borderLeft: (theme) =>
+                                    `4px solid ${theme.palette.text.secondary}`,
+                            }}
+                        >
+                            <Typography color="textSecondary">
+                                {children}
+                            </Typography>
+                        </Box>
+                    );
+                },
                 a({ children, href, target, rel }) {
                     return (
                         <NextLink passHref href={href || '#'}>
@@ -93,9 +109,15 @@ export const MarkdownContent = ({ children }: MarkdownContentProps) => {
                     const match = /language-(\w+)/.exec(className || '');
                     return !inline && match ? (
                         <SyntaxHighlighter
+                            PreTag="div"
                             language={match[1]}
                             style={prismStyle}
-                            PreTag="div"
+                            codeTagProps={{
+                                style: {
+                                    fontSize: '1rem',
+                                    fontFamily: `'Source Code Pro', 'Inconsolata', monospace`,
+                                },
+                            }}
                         >
                             {String(children).replace(/\n$/, '')}
                         </SyntaxHighlighter>
