@@ -1,12 +1,14 @@
 import { PaletteMode } from '@mui/material';
 import { createThemeWithMode as createSiteTheme } from './site';
-import { default as cocktails } from './cocktails';
+import { createThemeWithMode as createCocktailsTheme } from './cocktails';
 
 export type ThemeId = 'site' | 'cocktails';
 
-export const createThemeInstance = (
-    mode: PaletteMode,
-    themeId: ThemeId = 'site',
-) => {
-    return themeId === 'site' ? createSiteTheme(mode) : cocktails;
+export const createThemeInstance = (mode: PaletteMode, themeId?: ThemeId) => {
+    switch (themeId) {
+        case 'cocktails':
+            return createCocktailsTheme(mode);
+        default:
+            return createSiteTheme(mode);
+    }
 };

@@ -1,24 +1,34 @@
 import { Container, Typography } from '@mui/material';
 import { Box } from '@mui/system';
-import React from 'react';
+import React, { useContext } from 'react';
 import { CocktailMenu } from '../../interfaces/cocktails';
 import Image from 'next/image';
 import { loader } from '../../helpers/imageLoader';
+import { ColorModeContext } from '../ColorMode';
 
 export interface CocktailsPageProps {
     menus: CocktailMenu[];
 }
 
 export const CocktailsPage = ({ menus }: CocktailsPageProps) => {
+    const { mode } = useContext(ColorModeContext);
+
     return (
         <Container maxWidth="sm">
             <Box sx={{ my: 8, textAlign: 'center' }}>
                 <Box sx={{ mb: 8 }}>
-                    <Box sx={{ mb: 2 }}>
+                    <Box
+                        sx={{
+                            mb: 2,
+                            '& img': {
+                                filter: mode === 'dark' ? 'invert(1)' : 'none',
+                            },
+                        }}
+                    >
                         <Image
                             height={64}
                             width={64}
-                            src="/images/wobbly-paw.jpg"
+                            src="/images/wobbly-paw.png"
                             alt="The Wobbly Paw"
                             loader={loader}
                         />
@@ -39,7 +49,17 @@ export const CocktailsPage = ({ menus }: CocktailsPageProps) => {
 
                         {cocktails.map(({ name, glass, ingredients }, j) => (
                             <Box key={j} sx={{ mb: 4 }}>
-                                <Box sx={{ mb: 1 }}>
+                                <Box
+                                    sx={{
+                                        mb: 1,
+                                        '& img': {
+                                            filter:
+                                                mode === 'dark'
+                                                    ? 'invert(1)'
+                                                    : 'none',
+                                        },
+                                    }}
+                                >
                                     <Image
                                         height={48}
                                         width={48}
