@@ -43,22 +43,24 @@ export const MainContainer = ({ children }: PropsWithChildren<{}>) => {
                 <Box sx={{ mt: 1, display: 'flex' }}>
                     {links.map(({ text, href }, i) => (
                         <Box key={i} sx={{ mr: 2 }}>
-                            <Link
-                                color="secondary"
-                                href={href}
-                                sx={{
-                                    textTransform: 'lowercase',
-                                    '&:hover': {
-                                        color: (theme) =>
-                                            theme.palette.background.default,
-                                        backgroundColor: (theme) =>
-                                            theme.palette.secondary.main,
-                                        textDecoration: 'none',
-                                    },
-                                }}
-                            >
-                                {text}
-                            </Link>
+                            <NextLink passHref href={href}>
+                                <Link
+                                    color="secondary"
+                                    sx={{
+                                        textTransform: 'lowercase',
+                                        '&:hover': {
+                                            color: (theme) =>
+                                                theme.palette.background
+                                                    .default,
+                                            backgroundColor: (theme) =>
+                                                theme.palette.secondary.main,
+                                            textDecoration: 'none',
+                                        },
+                                    }}
+                                >
+                                    {text}
+                                </Link>
+                            </NextLink>
                         </Box>
                     ))}
                 </Box>

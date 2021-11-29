@@ -5,6 +5,7 @@ import ReactMarkdown from 'react-markdown';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { dracula as darkTheme } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 import { vs as lightTheme } from 'react-syntax-highlighter/dist/cjs/styles/prism';
+import NextLink from 'next/link';
 
 export interface MarkdownContentProps {
     children: string;
@@ -64,23 +65,24 @@ export const MarkdownContent = ({ children }: MarkdownContentProps) => {
                 },
                 a({ children, href, target, rel }) {
                     return (
-                        <Link
-                            color="primary"
-                            href={href}
-                            target={target}
-                            rel={rel}
-                            sx={{
-                                '&:hover': {
-                                    color: (theme) =>
-                                        theme.palette.background.default,
-                                    backgroundColor: (theme) =>
-                                        theme.palette.primary.main,
-                                    textDecoration: 'none',
-                                },
-                            }}
-                        >
-                            {children}
-                        </Link>
+                        <NextLink passHref href={href}>
+                            <Link
+                                color="primary"
+                                target={target}
+                                rel={rel}
+                                sx={{
+                                    '&:hover': {
+                                        color: (theme) =>
+                                            theme.palette.background.default,
+                                        backgroundColor: (theme) =>
+                                            theme.palette.primary.main,
+                                        textDecoration: 'none',
+                                    },
+                                }}
+                            >
+                                {children}
+                            </Link>
+                        </NextLink>
                     );
                 },
                 pre({ children }) {

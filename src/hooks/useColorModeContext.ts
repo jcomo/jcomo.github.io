@@ -1,5 +1,5 @@
 import { PaletteMode, Theme, useMediaQuery } from '@mui/material';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { IColorModeContext } from '../components/ColorMode';
 import { createThemeInstance, ThemeId } from '../themes';
 
@@ -10,10 +10,7 @@ const getNextMode = (mode: PaletteMode) => {
 export const useColorModeContext = (
     themeId?: ThemeId,
 ): [IColorModeContext, Theme] => {
-    const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
-    const [mode, setMode] = React.useState<PaletteMode>(
-        prefersDarkMode ? 'dark' : 'light',
-    );
+    const [mode, setMode] = React.useState<PaletteMode>('light');
     const theme = React.useMemo(
         () => createThemeInstance(mode, themeId),
         [mode, themeId],
@@ -27,6 +24,11 @@ export const useColorModeContext = (
         }),
         [theme],
     );
+
+    const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
+    useEffect(() => {
+        setMode(prefersDarkMode ? 'dark' : 'light');
+    }, [prefersDarkMode]);
 
     return [value, theme];
 };

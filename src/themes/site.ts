@@ -8,6 +8,9 @@ export const createThemeWithMode = (mode: PaletteMode) => {
         typography: {
             fontFamily: "'Source Code Pro', 'Inconsolata', monospace",
             fontSize: 16,
+            allVariants: {
+                letterSpacing: -0.25,
+            },
             h1: {
                 fontSize: 36,
                 fontWeight: 600,
@@ -51,7 +54,7 @@ const getPalette = (mode: PaletteMode) => ({
           }
         : {
               primary: {
-                  main: '#d6c547',
+                  main: '#ffec5c',
               },
               secondary: {
                   main: '#ff75bf',
