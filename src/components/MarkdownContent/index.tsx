@@ -65,7 +65,7 @@ export const MarkdownContent = ({ children }: MarkdownContentProps) => {
                 },
                 a({ children, href, target, rel }) {
                     return (
-                        <NextLink passHref href={href}>
+                        <NextLink passHref href={href || '#'}>
                             <Link
                                 color="primary"
                                 target={target}
