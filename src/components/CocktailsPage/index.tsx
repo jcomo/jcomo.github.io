@@ -26,6 +26,7 @@ export const CocktailsPage = ({ menus }: CocktailsPageProps) => {
                         }}
                     >
                         <Image
+                            unoptimized
                             height={64}
                             width={64}
                             src="/images/wobbly-paw.png"
@@ -61,6 +62,7 @@ export const CocktailsPage = ({ menus }: CocktailsPageProps) => {
                                     }}
                                 >
                                     <Image
+                                        unoptimized
                                         height={48}
                                         width={48}
                                         src={`/images/cocktails/${glass}.png`}

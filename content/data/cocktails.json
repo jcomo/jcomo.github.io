@@ -4,19 +4,19 @@
       "name": "Seasonal",
       "cocktails": [
         {
-          "name": "Turkey Trot",
+          "name": "Jingle Bells",
           "glass": "spritz",
-          "ingredients": ["Prosecco", "Crème de cassis"]
+          "ingredients": ["Gin", "Cranberry", "Sparkling wine"]
         },
         {
-          "name": "Mom's Cranberries",
-          "glass": "martini",
-          "ingredients": ["Cointreau", "Vermouth", "Cranberry juice", "Vodka"]
+          "name": "Kris Kringle",
+          "glass": "coupe",
+          "ingredients": ["Scotch", "Vermouth", "Benedictine", "Bitters"]
         },
         {
-          "name": "Fall in Manhattan",
-          "glass": "manhattan",
-          "ingredients": ["Rye", "Vermouth", "Maple Syrup"]
+          "name": "Santa's Little Helper",
+          "glass": "tumbler",
+          "ingredients": ["Scotch", "Neat"]
         }
       ]
     },
