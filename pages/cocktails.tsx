@@ -3,6 +3,8 @@ import { CocktailsPage } from '../src/components/CocktailsPage';
 import { CocktailMenu } from '../src/interfaces/cocktails';
 import path from 'path';
 import fs from 'fs';
+import { SocialTags } from '../src/components/SocialTags';
+import Head from 'next/head';
 
 interface Props {
     menus: CocktailMenu[];
@@ -20,7 +22,19 @@ export async function getStaticProps() {
 }
 
 function Route({ menus }: Props) {
-    return <CocktailsPage menus={menus} />;
+    return (
+        <React.Fragment>
+            <Head>
+                <SocialTags
+                    title="The Wobbly Paw"
+                    description="Enjoy seasonal and classic cocktails at The Wobbly Paw, est. 2020"
+                    image="https://www.jcomo.me/images/wobbly-paw-share.jpg"
+                    url="https://www.jcomo.me/cocktails"
+                />
+            </Head>
+            <CocktailsPage menus={menus} />;
+        </React.Fragment>
+    );
 }
 
 export default Route;
