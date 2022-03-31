@@ -1,34 +1,36 @@
-import { PaletteMode, Theme, useMediaQuery } from '@mui/material';
 import React, { useEffect } from 'react';
-import { IColorModeContext } from '../components/ColorMode';
-import { createThemeInstance, ThemeId } from '../themes';
+import { useMediaQuery } from '@react-hookz/web';
+import { IColorModeContext, PaletteMode } from '../components/ColorMode';
 
 const getNextMode = (mode: PaletteMode) => {
     return mode === 'dark' ? 'light' : 'dark';
 };
 
-export const useColorModeContext = (
-    themeId?: ThemeId,
-): [IColorModeContext, Theme] => {
+export const useColorModeContext = (): [IColorModeContext] => {
     const [mode, setMode] = React.useState<PaletteMode>('light');
-    const theme = React.useMemo(
-        () => createThemeInstance(mode, themeId),
-        [mode, themeId],
-    );
 
     const value = React.useMemo<IColorModeContext>(
         () => ({
-            mode: theme.palette.mode,
-            nextMode: getNextMode(theme.palette.mode),
+            mode: mode,
+            nextMode: getNextMode(mode),
             toggleMode: () => setMode(getNextMode),
         }),
-        [theme],
+        [mode],
     );
+
+    // Set class="dark" on the HTML element so that dark: selectors work in tailwind
+    useEffect(() => {
+        if (mode === 'dark') {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    }, [mode]);
 
     const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
     useEffect(() => {
         setMode(prefersDarkMode ? 'dark' : 'light');
     }, [prefersDarkMode]);
 
-    return [value, theme];
+    return [value];
 };

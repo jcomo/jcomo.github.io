@@ -1,7 +1,5 @@
-import { Typography } from '@mui/material';
 import React from 'react';
 import { DateTime } from 'luxon';
-import { Box } from '@mui/system';
 import { MarkdownContent } from '../MarkdownContent';
 
 export interface PageLayoutProps {
@@ -15,16 +13,14 @@ export const PageLayout = ({ title, body, date }: PageLayoutProps) => {
 
     return (
         <React.Fragment>
-            <Box sx={{ mb: 3 }}>
-                <Typography variant="h2" component="h1">
-                    {title}
-                </Typography>
+            <div className="mb-6">
+                <h1 className="text-3xl font-bold">{title}</h1>
                 {publishedAt && (
-                    <Typography variant="subtitle2" color="textSecondary">
+                    <p className="text-light text-base">
                         {publishedAt.toLocaleString(DateTime.DATE_FULL)}
-                    </Typography>
+                    </p>
                 )}
-            </Box>
+            </div>
             <MarkdownContent>{body}</MarkdownContent>
         </React.Fragment>
     );

@@ -32,7 +32,7 @@ function Route({ menus }: Props) {
                     url="https://www.jcomo.me/cocktails"
                 />
             </Head>
-            <CocktailsPage menus={menus} />;
+            <CocktailsPage menus={menus} />
         </React.Fragment>
     );
 }
