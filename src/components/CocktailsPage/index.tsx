@@ -1,7 +1,6 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { CocktailMenu } from '../../interfaces/cocktails';
 import { loader } from '../../helpers/imageLoader';
-import { ColorModeContext } from '../ColorMode';
 import Image from 'next/image';
 
 export interface CocktailsPageProps {
@@ -9,9 +8,6 @@ export interface CocktailsPageProps {
 }
 
 export const CocktailsPage = ({ menus }: CocktailsPageProps) => {
-    const { mode } = useContext(ColorModeContext);
-    console.log(mode);
-
     return (
         <div className="mx-auto max-w-sm font-serif text-gray-800 dark:text-gray-200">
             <div className="my-16 text-center">

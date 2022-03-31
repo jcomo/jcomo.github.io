@@ -4,14 +4,15 @@ import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { dracula as darkTheme } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 import { vs as lightTheme } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 import NextLink from 'next/link';
+import { useColorModeContext } from '../../hooks/useColorModeContext';
 
 export interface MarkdownContentProps {
     children: string;
 }
 
 export const MarkdownContent = ({ children }: MarkdownContentProps) => {
-    const thing = 1;
-    const prismStyle = thing > 0 ? lightTheme : darkTheme;
+    const [{ mode }] = useColorModeContext();
+    const prismStyle = mode === 'dark' ? darkTheme : lightTheme;
 
     return (
         <ReactMarkdown
