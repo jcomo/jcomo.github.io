@@ -1,5 +1,3 @@
-import { Link, Typography } from '@mui/material';
-import { Box, useTheme } from '@mui/system';
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
@@ -12,102 +10,42 @@ export interface MarkdownContentProps {
 }
 
 export const MarkdownContent = ({ children }: MarkdownContentProps) => {
-    const theme = useTheme();
-    const prismStyle = theme.palette.mode === 'dark' ? darkTheme : lightTheme;
+    const thing = 1;
+    const prismStyle = thing > 0 ? lightTheme : darkTheme;
 
     return (
         <ReactMarkdown
+            className={`
+                prose-pre:not-prose
+                prose
+                max-w-none
+                prose-a:text-blue-600
+                hover:prose-a:bg-blue-600
+                hover:prose-a:text-white
+                hover:prose-a:no-underline
+                prose-pre:bg-transparent
+                prose-pre:p-0
+                dark:prose-invert
+            `}
             components={{
-                h1({ children }) {
-                    return (
-                        <Typography sx={{ mt: 4, mb: 2 }} variant="h3">
-                            {children}
-                        </Typography>
-                    );
-                },
-                h2({ children }) {
-                    return (
-                        <Typography sx={{ mt: 4, mb: 2 }} variant="h4">
-                            {children}
-                        </Typography>
-                    );
-                },
-                h3({ children }) {
-                    return (
-                        <Typography paragraph variant="h5">
-                            {children}
-                        </Typography>
-                    );
-                },
-                h4({ children }) {
-                    return (
-                        <Typography paragraph variant="h6">
-                            {children}
-                        </Typography>
-                    );
-                },
-                h5({ children }) {
-                    return (
-                        <Typography paragraph variant="h6">
-                            {children}
-                        </Typography>
-                    );
-                },
-                h6({ children }) {
-                    return (
-                        <Typography paragraph variant="h6">
-                            {children}
-                        </Typography>
-                    );
-                },
-                p({ children }) {
-                    return <Typography paragraph>{children}</Typography>;
-                },
-                blockquote({ children }) {
-                    return (
-                        <Box
-                            sx={{
-                                px: 4,
-                                my: 6,
-                                borderLeft: (theme) =>
-                                    `4px solid ${theme.palette.text.secondary}`,
-                            }}
-                        >
-                            <Typography color="textSecondary">
-                                {children}
-                            </Typography>
-                        </Box>
-                    );
-                },
-                a({ children, href, target, rel }) {
+                a({ children, href, ...rest }) {
                     return (
                         <NextLink passHref href={href || '#'}>
-                            <Link
-                                color="primary"
-                                target={target}
-                                rel={rel}
-                                sx={{
-                                    '&:hover': {
-                                        color: (theme) =>
-                                            theme.palette.background.default,
-                                        backgroundColor: (theme) =>
-                                            theme.palette.primary.main,
-                                        textDecoration: 'none',
-                                    },
-                                }}
-                            >
-                                {children}
-                            </Link>
+                            <a {...rest}>{children}</a>
                         </NextLink>
                     );
                 },
-                pre({ children }) {
-                    return <pre style={{ fontSize: '1rem' }}>{children}</pre>;
-                },
-                // eslint-disable-next-line no-unused-vars
-                code({ node, inline, className, children, ...props }) {
+                code({ inline, className, children, ...props }) {
                     const match = /language-(\w+)/.exec(className || '');
-                    return !inline && match ? (
+                    if (!match || inline) {
+                        return (
+                            <code className={className} {...props}>
+                                {children}
+                            </code>
+                        );
+                    }
+
+                    return (
                         <SyntaxHighlighter
                             PreTag="div"
                             language={match[1]}
@@ -121,10 +59,6 @@ export const MarkdownContent = ({ children }: MarkdownContentProps) => {
                         >
                             {String(children).replace(/\n$/, '')}
                         </SyntaxHighlighter>
-                    ) : (
-                        <code className={className} {...props}>
-                            {children}
-                        </code>
                     );
                 },
             }}

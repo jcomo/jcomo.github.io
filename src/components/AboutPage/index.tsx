@@ -1,6 +1,5 @@
-import { Typography } from '@mui/material';
 import React from 'react';
 
 export const AboutPage = () => {
-    return <Typography color="textSecondary">Coming soon</Typography>;
+    return <p className="text-gray-500">Coming soon</p>;
 };

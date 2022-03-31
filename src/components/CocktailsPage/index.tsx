@@ -1,10 +1,8 @@
-import { Container, Typography } from '@mui/material';
-import { Box } from '@mui/system';
 import React, { useContext } from 'react';
 import { CocktailMenu } from '../../interfaces/cocktails';
-import Image from 'next/image';
 import { loader } from '../../helpers/imageLoader';
 import { ColorModeContext } from '../ColorMode';
+import Image from 'next/image';
 
 export interface CocktailsPageProps {
     menus: CocktailMenu[];
@@ -12,19 +10,13 @@ export interface CocktailsPageProps {
 
 export const CocktailsPage = ({ menus }: CocktailsPageProps) => {
     const { mode } = useContext(ColorModeContext);
+    console.log(mode);
 
     return (
-        <Container maxWidth="sm">
-            <Box sx={{ my: 8, textAlign: 'center' }}>
-                <Box sx={{ mb: 8 }}>
-                    <Box
-                        sx={{
-                            mb: 2,
-                            '& img': {
-                                filter: mode === 'dark' ? 'invert(1)' : 'none',
-                            },
-                        }}
-                    >
+        <div className="mx-auto max-w-sm">
+            <div className="my-16 text-center">
+                <div className="mb-16">
+                    <div className="mb-4">
                         <Image
                             unoptimized
                             height={64}
@@ -33,34 +25,19 @@ export const CocktailsPage = ({ menus }: CocktailsPageProps) => {
                             alt="The Wobbly Paw"
                             loader={loader}
                         />
-                    </Box>
-                    <Typography variant="h1">The Wobbly Paw</Typography>
-                </Box>
+                    </div>
+                    <h1 className="text-4xl font-semibold">The Wobbly Paw</h1>
+                </div>
 
                 {menus.map(({ name, cocktails }, i) => (
-                    <Box key={i} sx={{ mb: 10 }}>
-                        <Box sx={{ mb: 3 }}>
-                            <Typography
-                                variant="h3"
-                                sx={{ textTransform: 'lowercase' }}
-                            >
-                                {name}
-                            </Typography>
-                        </Box>
+                    <div key={i} className="mb-20">
+                        <div className="mb-8">
+                            <h2 className="text-3xl lowercase">{name}</h2>
+                        </div>
 
                         {cocktails.map(({ name, glass, ingredients }, j) => (
-                            <Box key={j} sx={{ mb: 4 }}>
-                                <Box
-                                    sx={{
-                                        mb: 1,
-                                        '& img': {
-                                            filter:
-                                                mode === 'dark'
-                                                    ? 'invert(1)'
-                                                    : 'none',
-                                        },
-                                    }}
-                                >
+                            <div key={j} className="mb-8">
+                                <div className="mb-2">
                                     <Image
                                         unoptimized
                                         height={48}
@@ -69,21 +46,18 @@ export const CocktailsPage = ({ menus }: CocktailsPageProps) => {
                                         alt={`${glass} cocktail glass`}
                                         loader={loader}
                                     />
-                                </Box>
-                                <Typography
-                                    variant="h5"
-                                    sx={{ textTransform: 'lowercase' }}
-                                >
+                                </div>
+                                <h3 className="text-lg font-semibold lowercase">
                                     {name}
-                                </Typography>
-                                <Typography sx={{ textTransform: 'lowercase' }}>
+                                </h3>
+                                <p className="lowercase">
                                     {ingredients.join(', ')}
-                                </Typography>
-                            </Box>
+                                </p>
+                            </div>
                         ))}
-                    </Box>
+                    </div>
                 ))}
-            </Box>
-        </Container>
+            </div>
+        </div>
     );
 };
