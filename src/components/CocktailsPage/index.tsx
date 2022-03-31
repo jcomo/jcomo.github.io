@@ -13,7 +13,7 @@ export const CocktailsPage = ({ menus }: CocktailsPageProps) => {
     console.log(mode);
 
     return (
-        <div className="mx-auto max-w-sm">
+        <div className="mx-auto max-w-sm font-serif text-gray-800 dark:text-gray-200">
             <div className="my-16 text-center">
                 <div className="mb-16">
                     <div className="mb-4">
@@ -24,9 +24,12 @@ export const CocktailsPage = ({ menus }: CocktailsPageProps) => {
                             src="/images/wobbly-paw.png"
                             alt="The Wobbly Paw"
                             loader={loader}
+                            className="filter dark:invert"
                         />
                     </div>
-                    <h1 className="text-4xl font-semibold">The Wobbly Paw</h1>
+                    <h1 className="font-sans text-5xl font-semibold tracking-tight">
+                        The Wobbly Paw
+                    </h1>
                 </div>
 
                 {menus.map(({ name, cocktails }, i) => (
@@ -45,6 +48,7 @@ export const CocktailsPage = ({ menus }: CocktailsPageProps) => {
                                         src={`/images/cocktails/${glass}.png`}
                                         alt={`${glass} cocktail glass`}
                                         loader={loader}
+                                        className="filter dark:invert"
                                     />
                                 </div>
                                 <h3 className="text-lg font-semibold lowercase">

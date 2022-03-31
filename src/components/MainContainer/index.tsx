@@ -13,7 +13,7 @@ export const MainContainer = ({ children }: PropsWithChildren<{}>) => {
 
     return (
         <div className="mx-auto max-w-2xl  px-4 md:px-0">
-            <header className="mt-8 mb-12 ">
+            <header className="mt-8 mb-12">
                 <div className="flex items-center justify-between">
                     <NextLink passHref href={routes.index()}>
                         <a className="text-4xl font-bold no-underline">
