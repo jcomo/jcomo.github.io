@@ -1,47 +1,27 @@
 import * as React from 'react';
 import Head from 'next/head';
 import { AppProps } from 'next/app';
-import { ThemeProvider } from '@mui/material/styles';
-import CssBaseline from '@mui/material/CssBaseline';
-import { CacheProvider, EmotionCache } from '@emotion/react';
-import createEmotionCache from '../src/createEmotionCache';
 import { ColorModeContext } from '../src/components/ColorMode';
 import { useColorModeContext } from '../src/hooks/useColorModeContext';
 import '../styles/globals.css';
 
-// Client-side cache, shared for the whole session of the user in the browser.
-const clientSideEmotionCache = createEmotionCache();
-
-interface MyAppProps extends AppProps {
-    emotionCache?: EmotionCache;
-}
-
-export default function MyApp({
-    Component,
-    pageProps,
-    emotionCache = clientSideEmotionCache,
-}: MyAppProps) {
-    const [colorModeContext, theme] = useColorModeContext(pageProps.theme);
+export default function App({ Component, pageProps }: AppProps) {
+    const [colorModeContext] = useColorModeContext();
+    const themeColor = colorModeContext.mode === 'dark' ? 'black' : 'white';
 
     return (
-        <CacheProvider value={emotionCache}>
+        <React.Fragment>
             <Head>
                 <title>Jonathan Como</title>
                 <meta
                     name="viewport"
                     content="initial-scale=1, width=device-width"
                 />
-                <meta
-                    name="theme-color"
-                    content={theme.palette.background.default}
-                />
+                <meta name="theme-color" content={themeColor} />
             </Head>
             <ColorModeContext.Provider value={colorModeContext}>
-                <ThemeProvider theme={theme}>
-                    <CssBaseline />
-                    <Component {...pageProps} />
-                </ThemeProvider>
+                <Component {...pageProps} />
             </ColorModeContext.Provider>
-        </CacheProvider>
+        </React.Fragment>
     );
 }

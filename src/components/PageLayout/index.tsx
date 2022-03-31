@@ -16,7 +16,7 @@ export const PageLayout = ({ title, body, date }: PageLayoutProps) => {
             <div className="mb-6">
                 <h1 className="text-3xl font-bold text-gray-800">{title}</h1>
                 {publishedAt && (
-                    <p className="text-md text-gray-500">
+                    <p className="text-base text-gray-500">
                         {publishedAt.toLocaleString(DateTime.DATE_FULL)}
                     </p>
                 )}

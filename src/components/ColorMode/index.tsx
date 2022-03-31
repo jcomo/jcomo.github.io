@@ -1,5 +1,6 @@
-import { PaletteMode } from '@mui/material';
 import React from 'react';
+
+export type PaletteMode = 'light' | 'dark';
 
 export interface IColorModeContext {
     mode: PaletteMode;
