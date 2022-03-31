@@ -28,7 +28,7 @@ export default class MyDocument extends Document {
                         href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap"
                     />
                 </Head>
-                <body>
+                <body className="dark:bg-gray-900 dark:text-white">
                     <Main />
                     <NextScript />
                 </body>

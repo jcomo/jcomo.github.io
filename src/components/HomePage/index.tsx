@@ -14,11 +14,9 @@ export const HomePage = ({ posts }: HomePageProps) => {
             {posts.map(({ slug, title, date }) => (
                 <div key={slug} className="mb-8">
                     <NextLink passHref href={routes.post(slug)}>
-                        <a className="text-xl text-blue-600 underline hover:bg-blue-600 hover:text-white hover:no-underline">
-                            {title}
-                        </a>
+                        <a className="link-primary text-xl">{title}</a>
                     </NextLink>
-                    <p className="mt-1 text-base text-gray-500">
+                    <p className="text-light mt-1 text-base">
                         {DateTime.fromISO(date).toLocaleString(
                             DateTime.DATE_FULL,
                         )}

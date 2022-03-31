@@ -16,19 +16,19 @@ export const MainContainer = ({ children }: PropsWithChildren<{}>) => {
             <header className="mt-8 mb-12 ">
                 <div className="flex items-center justify-between">
                     <NextLink passHref href={routes.index()}>
-                        <a className="text-4xl font-bold text-gray-900 no-underline">
+                        <a className="text-4xl font-bold no-underline">
                             <h1>Jonathan Como</h1>
                         </a>
                     </NextLink>
                     <button onClick={toggleMode} className="hidden md:block">
-                        <ModeIcon className="dark:text-red-5 h-6 w-6 text-gray-900" />
+                        <ModeIcon className="h-6 w-6" />
                     </button>
                 </div>
                 <div className="mt-2 flex">
                     {links.map(({ text, href }, i) => (
                         <div key={i} className="mr-4">
                             <NextLink passHref href={href}>
-                                <a className="lowercase text-pink-600 underline hover:bg-pink-600 hover:text-white hover:no-underline">
+                                <a className="link-secondary lowercase">
                                     {text}
                                 </a>
                             </NextLink>
@@ -40,7 +40,7 @@ export const MainContainer = ({ children }: PropsWithChildren<{}>) => {
             <main>{children}</main>
 
             <footer className="mt-20 mb-8 text-center">
-                <p className="text-sm text-gray-500">
+                <p className="text-light text-sm">
                     &copy; {DateTime.local().toFormat('yyyy')} Jonathan Como
                 </p>
             </footer>

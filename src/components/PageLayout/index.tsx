@@ -14,9 +14,9 @@ export const PageLayout = ({ title, body, date }: PageLayoutProps) => {
     return (
         <React.Fragment>
             <div className="mb-6">
-                <h1 className="text-3xl font-bold text-gray-800">{title}</h1>
+                <h1 className="text-3xl font-bold">{title}</h1>
                 {publishedAt && (
-                    <p className="text-base text-gray-500">
+                    <p className="text-light text-base">
                         {publishedAt.toLocaleString(DateTime.DATE_FULL)}
                     </p>
                 )}

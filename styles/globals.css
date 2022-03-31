@@ -1,3 +1,39 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    html {
+        font-family: 'Source Code Pro', 'Inconsolata', monospace;
+    }
+}
+
+@layer components {
+    .link-primary {
+        @apply
+            underline
+            text-blue-600
+            hover:no-underline
+            hover:text-white
+            hover:bg-blue-600
+            dark:text-orange-300
+            dark:hover:text-gray-900
+            dark:hover:bg-orange-300;
+    }
+
+    .link-secondary {
+        @apply
+            underline
+            text-pink-600
+            hover:no-underline
+            hover:text-white
+            hover:bg-pink-600
+            dark:text-pink-300
+            dark:hover:text-gray-900
+            dark:hover:bg-pink-300;
+    }
+
+    .text-light {
+        @apply text-gray-500 dark:text-gray-400;
+    }
+}

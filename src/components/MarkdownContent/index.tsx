@@ -17,12 +17,9 @@ export const MarkdownContent = ({ children }: MarkdownContentProps) => {
         <ReactMarkdown
             className={`
                 prose-pre:not-prose
+                prose-a:link-primary
                 prose
                 max-w-none
-                prose-a:text-blue-600
-                hover:prose-a:bg-blue-600
-                hover:prose-a:text-white
-                hover:prose-a:no-underline
                 prose-pre:bg-transparent
                 prose-pre:p-0
                 dark:prose-invert
